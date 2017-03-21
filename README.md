@@ -54,6 +54,35 @@ docker service ps helloworld
 docker service rm helloworld
 ```
 
+## 监控
+
+cAdvisor + InfluxDB + Grafana
+
+```
+docker network create --driver overlay logging
+
+docker service create --network logging \
+-p 8083:8083 -p 8086:8086 \
+--mount source=influxdb-vol,type=volume,target=/var/lib/influxdb \
+--name=influxdb --constraint 'node.hostname==russell-master' \
+tutum/influxdb
+
+docker service create --network logging \
+--name cadvisor \
+-p 8080:8080 \
+--mode global \
+--mount source=/var/run,type=bind,target=/var/run,readonly=false \
+--mount source=/,type=bind,target=/rootfs,readonly=true \
+--mount source=/sys,type=bind,target=/sys,readonly=true \
+--mount source=/var/lib/docker,type=bind,target=/var/lib/docker,readonly=true \
+google/cadvisor -storage_driver=influxdb -storage_driver_host=influxdb:8086 -storage_driver_db=cadvisor
+
+docker service create --network logging \
+-p 3000:3000 \
+--name grafana \
+grafana/grafana
+```
+
 ## 阅读
 
 1. [How nodes work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
