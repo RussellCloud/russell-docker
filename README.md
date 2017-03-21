@@ -56,6 +56,6 @@ docker service rm helloworld
 
 ## 阅读
 
-1. [how-swarm-mode-works](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
-2. [how-swarm-mode-works](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
+1. [How nodes work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
+2. [How services work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
 
