@@ -5,7 +5,7 @@ russell-slave1
 russell-slave2
 russell-slave3
 
-## 安装 docker
+## 安装
 ```
 curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -
 ```
@@ -54,5 +54,8 @@ docker service ps helloworld
 docker service rm helloworld
 ```
 
+## 阅读
 
+1. [how-swarm-mode-works](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
+2. [how-swarm-mode-works](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
 
