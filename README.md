@@ -27,12 +27,12 @@ sudo systemctl restart docker
 
 ## 配置 swarm 集群
 
-russell-master 上运行
+主 russell-master 作为 Manager
 ```
 docker swarm init --advertise-addr <ip>
 ```
 
-各 russell-slave 上运行
+各 russell-slave 作为 Worker
 ```
 docker swarm join \
     --token <token> \
