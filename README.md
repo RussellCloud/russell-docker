@@ -46,6 +46,11 @@ docker node ls
 
 
 ## 部署服务
+
+> mode=replicated|global
+> replicated 意味着这个服务可以随意 scale, 自动安排这些容器运行在哪台机器上
+> global 声明一个全局的服务, 在每台服务器一个容器
+
 ```
 docker service create --replicas 4 --name helloworld alpine ping docker.com
 
@@ -53,6 +58,9 @@ docker service ps helloworld
 
 docker service rm helloworld
 ```
+
+***服务由多个任务实例组成，每个任务会启动一个容器***
+
 
 ## 监控
 
