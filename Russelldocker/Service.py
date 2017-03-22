@@ -17,7 +17,8 @@ class Service:
 
     # 获取服务
     def get(self, id):
-        print self.client.services.get(id)
+        self.service = self.client.services.get(id)
+        print self.service
 
     # 运行服务
     def run(self, image, name):
