@@ -1,6 +1,6 @@
-from Russelldocker.Service import Service
+import Russelldocker.Service
 
-myService = Service()
+myService = Russelldocker.Service()
 
 print myService.list()
 

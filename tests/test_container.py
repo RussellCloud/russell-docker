@@ -1,5 +1,5 @@
-from Russelldocker.Container import Container
+import Russelldocker.Container
 
-myContainer = Container()
+myContainer = Russelldocker.Container()
 
 print myContainer.list()
