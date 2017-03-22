@@ -16,8 +16,11 @@ class Service:
         print self.client.services.list()
 
     # 运行服务
-    def run(self, image, command):
-        self.service = self.client.services.create(image, command=command)
+    def run(self, image, name, mode, publish):
+        self.service = self.client.services.create(image,
+                                                   name=name,
+                                                   mode=mode,
+                                                   publish=publish)
         print self.service
 
     # 获取服务id
