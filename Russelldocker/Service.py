@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import docker
+import os
 
 
 class Service:
@@ -16,12 +17,15 @@ class Service:
         print self.client.services.list()
 
     # 运行服务
-    def run(self, image, name, mode, args):
-        self.service = self.client.services.create(image,
-                                                   name=name,
-                                                   mode=mode,
-                                                   args=args)
-        print self.service
+    def run(self, image, name, mode):
+        # self.service = self.client.services.create(image,
+        #                                            name=name,
+        #                                            mode=mode)
+        print os.system('docker service create \
+        --name ' + name + ' \
+        --mode ' + mode + ' \
+        --publish 8888:8888 \
+        ' + image)
 
     # 获取服务id
     def get_id(self):
