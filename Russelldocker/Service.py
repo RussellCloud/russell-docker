@@ -30,5 +30,6 @@ class Service:
         print self.service
 
     # 获取服务日志
-    def get_logs(self):
-        print self.service.logs
+    def get_logs(self, id):
+        service = self.client.services.get(id)
+        print service.logs

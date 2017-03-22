@@ -4,7 +4,7 @@ myService = Service()
 
 # print myService.list()
 
-service = myService.get('h2mo8de6fj')
+# service = myService.get('h2mo8de6fj')
 # service = myService.run('floydhub/tensorflow:latest-py2', 'floydhub')
 
-print service.logs
+print myService.get_logs('h2mo8de6fj')
