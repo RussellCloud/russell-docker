@@ -1,4 +1,4 @@
-Funniest
+Russelldocker
 --------
 
 To use (with caution), simply do::
