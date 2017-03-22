@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 import docker
-import os
 
 
 class Service:
