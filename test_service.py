@@ -7,4 +7,4 @@ print myService.list()
 print myService.run('floydhub/tensorflow:latest-py2',
                     'floydhub',
                     'replicated',
-                    '8888:8888')
+                    ['-p', '8888:8888'])
