@@ -16,7 +16,7 @@ class Service:
 
     # 运行服务
     def run(self, image, name):
-        print self.client.services.create(image, name=name, endpoint_config={
+        print self.client.create_service(image, name=name, endpoint_config={
             'Ports': [
                 {'Protocol': 'tcp', 'PublishedPort': 8888, 'TargetPort': 8888},
             ]
