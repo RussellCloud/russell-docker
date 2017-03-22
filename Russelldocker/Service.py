@@ -9,6 +9,7 @@ class Service:
         self.client = docker.from_env()
         # self.client = docker.DockerClient(base_url='unix://var/run/docker.sock')
         # self.client = docker.DockerClient(base_url='tcp://127.0.0.1:1234')
+        self.service = ''
 
     # 服务列表
     def list(self):
@@ -16,12 +17,13 @@ class Service:
 
     # 运行服务
     def run(self, image, name):
-        print self.client.services.create(image, name=name, endpoint_spec={
+        self.service = self.client.services.create(image, name=name, endpoint_spec={
             'Ports': [
                 {'Protocol': 'tcp', 'PublishedPort': 8888, 'TargetPort': 8888},
             ]
         })
+        print self.service
 
     # 获取服务日志
     def get_logs(self):
-        print self.client.service.logs()
+        print self.service.logs
