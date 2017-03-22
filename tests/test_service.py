@@ -1,4 +1,4 @@
-from Russelldocker import Service
+from Russelldocker.Service import Service
 
 myService = Service()
 
