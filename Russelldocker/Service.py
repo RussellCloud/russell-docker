@@ -16,13 +16,14 @@ class Service:
         print self.client.services.list()
 
     # 运行服务
-    def run(self, image, name, mode):
+    def run(self, image, name, mode, arg):
         # self.service = self.client.services.create('floydhub/tensorflow:latest-py2',
         #                                            name='floydhub',
         #                                            mode='replicated')
         self.service = self.client.services.create(image,
                                                    name=name,
-                                                   mode=mode)
+                                                   mode=mode,
+                                                   args=arg)
         print self.service
 
     # 获取服务id
