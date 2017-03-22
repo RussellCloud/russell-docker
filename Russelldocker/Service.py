@@ -15,6 +15,10 @@ class Service:
     def list(self):
         print self.client.services.list()
 
+    # 获取服务
+    def get(self, id):
+        print self.client.services.get(id)
+
     # 运行服务
     def run(self, image, name):
         self.service = self.client.services.create(image, name=name, endpoint_spec={
