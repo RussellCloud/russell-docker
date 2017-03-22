@@ -3,4 +3,5 @@ Funniest
 
 To use (with caution), simply do::
 
-    >>> import russelldocker
+    >>> from russelldocker import Container
+    >>> from russelldocker import Service

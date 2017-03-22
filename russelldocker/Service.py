@@ -3,7 +3,7 @@
 import docker
 
 
-class service:
+class Service:
     # 创建实例
     def __init__(self):
         self.client = docker.from_env()
