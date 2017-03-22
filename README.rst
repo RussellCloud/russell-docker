@@ -3,5 +3,5 @@ Russelldocker
 
 To use (with caution), simply do::
 
-    >>> from russelldocker import Container
-    >>> from russelldocker import Service
+    >>> from Russelldocker import Container
+    >>> from Russelldocker import Service
