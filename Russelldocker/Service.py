@@ -21,7 +21,7 @@ class Service:
         print self.service
 
     # 运行服务
-    def run(self, image, name, source, command=None, mode='cli'):
+    def run(self, image, name, source, target, command=None, mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
@@ -31,7 +31,7 @@ class Service:
                             'TargetPort': 8888},
                        ]
                    },
-                   mounts=['{}:/root:rw'.format(source)],
+                   mounts=[source + ':' + target + ':rw'],
                    command=command
                    )
         print self.service
