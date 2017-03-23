@@ -22,11 +22,22 @@ class Service:
 
     # 运行服务
     def run(self, image, name):
-        self.service = self.client.services.create(image, name=name, endpoint_spec={
-            'Ports': [
-                {'Protocol': 'tcp', 'PublishedPort': 8888, 'TargetPort': 8888},
-            ]
-        })
+        self.service = self.client.services. \
+            create(image,
+                   name=name,
+                   endpoint_spec={
+                       'Ports': [
+                           {'Protocol': 'tcp', 'PublishedPort': 8888,
+                            'TargetPort': 8888},
+                       ]
+                   },
+                   mount={
+                       'type': 'volume',
+                       'source': '/root/tensorflow-examples/3_NeuralNetworks',
+                       'destination': '/root/code'
+                   },
+                   command='python /root/code/dynamic_rnn.py'
+                   )
         print self.service
 
     # 获取服务日志
