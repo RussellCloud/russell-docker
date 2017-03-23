@@ -31,9 +31,13 @@ class Service:
                             'TargetPort': 8888},
                        ]
                    },
-                   mounts=[source + ':' + target],
+                   mounts=['{}:{}'.format(source, target)],
                    command=command
                    )
+        print self.service
+
+    def run2(self):
+        self.service = self.client.services.create()
         print self.service
 
     # 获取服务日志
