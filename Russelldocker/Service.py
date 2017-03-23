@@ -20,8 +20,8 @@ class Service:
         self.service = self.client.services.get(id)
         print self.service
 
-    # 运行服务
-    def run(self, image, name, source, target, command=None, run_mode='cli'):
+    # 创建服务
+    def create(self, image, name, source, target, command=None, run_mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
