@@ -21,7 +21,7 @@ class Service:
         print self.service
 
     # 运行服务
-    def run(self, image, name):
+    def run(self, image, name, source, mode='cli', command=None):
         self.service = self.client.services. \
             create(image,
                    name=name,
@@ -31,8 +31,8 @@ class Service:
                             'TargetPort': 8888},
                        ]
                    },
-                   mounts=['/root/tensorflow-examples/3_NeuralNetworks:/root:ro'],
-                   command='python /root/dynamic_rnn.py'
+                   mounts=['{}:/root:ro'.format(source)],
+                   command=command
                    )
         print self.service
 
