@@ -31,8 +31,8 @@ class Service:
                             'TargetPort': 8888},
                        ]
                    },
-                   mounts=['/root/tensorflow-examples/3_NeuralNetworks'],
-                   command='python /root/tensorflow-examples/3_NeuralNetworks/dynamic_rnn.py'
+                   mounts=['/root/tensorflow-examples/3_NeuralNetworks', '/root', 'ro'],
+                   command='python /root/dynamic_rnn.py'
                    )
         print self.service
 
