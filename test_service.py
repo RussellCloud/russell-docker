@@ -8,14 +8,14 @@ myService = Service()
 service = myService.create(image='floydhub/tensorflow:latest-py2',
                            name='floydhub',
                            source='/root/tensorflow-examples/3_NeuralNetworks',
-                           target='~/code',
-                           command=['cd ~/code', 'jupyter notebook'],
+                           target='/code',
+                           command=['cd /code', 'jupyter notebook'],
                            run_mode='jupyter')
 # service = myService.create(image='floydhub/tensorflow:latest-py2',
 #                            name='floydhub',
-#                            source='~/tensorflow-examples/3_NeuralNetworks',
-#                            target='~/code',
-#                            command='python ~/code/dynamic_rnn.py',
+#                            source='/root/tensorflow-examples/3_NeuralNetworks',
+#                            target='/code',
+#                            command='python /code/dynamic_rnn.py',
 #                            run_mode='cli')
 
 # print myService.get_logs('h2mo8de6fj')
