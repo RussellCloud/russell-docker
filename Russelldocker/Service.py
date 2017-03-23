@@ -31,7 +31,7 @@ class Service:
                             'TargetPort': 8888},
                        ]
                    },
-                   mounts=[source + ':' + target + ':rw'],
+                   mounts=[source + ':' + target + ':ro'],
                    command=command
                    )
         print self.service
