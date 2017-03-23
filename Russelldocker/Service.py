@@ -21,7 +21,7 @@ class Service:
         print self.service
 
     # 运行服务
-    def run(self, image, name, source, target, command=None, mode='cli'):
+    def run(self, image, name, source, target, command=None, run_mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
