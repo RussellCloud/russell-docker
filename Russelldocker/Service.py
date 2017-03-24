@@ -32,7 +32,6 @@ class Service:
                        ]
                    },
                    mounts=['{}:{}'.format(source, target)],
-                   log_driver='journald',
                    constraints=constraints,
                    command=command,
                    workdir=workdir,
