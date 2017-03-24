@@ -24,6 +24,7 @@ myService = Service()
 # print myService.get_stats('kbtvses1f6ucok7j16v0mzo86')
 
 log_gen = myService.get_logs('kbtvses1f6ucok7j16v0mzo86')
-log = list(log_gen)
-for l in log:
-    print l
+print log_gen.next()
+# log = list(log_gen)
+# for l in log:
+#     print l
