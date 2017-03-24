@@ -21,11 +21,10 @@ class Service:
         print self.service
 
     # 创建服务
-    def create(self, image, name, nodename, source, target, command=None, workdir=None, run_mode='cli'):
+    def create(self, image, name, source, target, constraints=None, command=None, workdir=None, run_mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
-                   nodename=['node.hostname=={}'.format(nodename)],
                    endpoint_spec={
                        'Ports': [
                            {'Protocol': 'tcp', 'PublishedPort': 8888,
@@ -33,16 +32,19 @@ class Service:
                        ]
                    },
                    mounts=['{}:{}'.format(source, target)],
+                   constraints=constraints,
                    command=command,
                    workdir=workdir,
                    )
         print self.service
 
-    def run2(self):
-        self.service = self.client.services.create()
-        print self.service
 
-    # 获取服务日志
-    def get_logs(self, id):
-        service = self.client.services.get(id)
-        print service.logs
+def run2(self):
+    self.service = self.client.services.create()
+    print self.service
+
+
+# 获取服务日志
+def get_logs(self, id):
+    service = self.client.services.get(id)
+    print service.logs
