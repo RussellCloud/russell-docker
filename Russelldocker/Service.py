@@ -38,8 +38,7 @@ class Service:
                    )
         print self.service.id
 
-
-# 获取服务日志
-def get_logs(self, id):
-    service = self.client.services.get(id)
-    print service.logs
+    # 获取服务日志
+    def get_logs(self, id):
+        service = self.client.services.get(id)
+        print service.logs
