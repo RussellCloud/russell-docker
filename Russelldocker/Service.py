@@ -36,12 +36,7 @@ class Service:
                    command=command,
                    workdir=workdir,
                    )
-        print self.service
-
-
-def run2(self):
-    self.service = self.client.services.create()
-    print self.service
+        print self.service.id
 
 
 # 获取服务日志

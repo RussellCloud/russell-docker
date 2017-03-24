@@ -19,7 +19,7 @@ class Container:
     def run(self, image):
         # self.container = self.client.containers.run("alpine", ["echo", "hello", "world"], detach=True)
         self.container = self.client.containers.run(image, detach=True)
-        print self.container
+        print self.container.id
 
     # 停止容器
     def stop(self):
