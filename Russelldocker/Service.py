@@ -21,7 +21,7 @@ class Service:
         print self.service
 
     # 创建服务
-    def create(self, image, name, source, target, command=None, run_mode='cli'):
+    def create(self, image, name, source, target, command=None, workdir=None, run_mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
@@ -32,7 +32,8 @@ class Service:
                        ]
                    },
                    mounts=['{}:{}'.format(source, target)],
-                   command=command
+                   command=command,
+                   workdir=workdir,
                    )
         print self.service
 
