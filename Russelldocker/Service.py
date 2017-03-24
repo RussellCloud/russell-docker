@@ -47,4 +47,4 @@ class Service:
     # 获取服务日志
     def get_logs(self, id):
         service = self.client.services.get(id)
-        print service.logs(stdout=True)
+        print service.logs(stdout=True, timestamps=True, follow=True)
