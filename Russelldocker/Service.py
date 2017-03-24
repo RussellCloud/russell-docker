@@ -25,6 +25,7 @@ class Service:
         self.service = self.client.services. \
             create(image,
                    name=name,
+                   constraints=['{}'.format(hostname)],
                    hostname=hostname,
                    endpoint_spec={
                        'Ports': [
