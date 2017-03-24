@@ -10,7 +10,7 @@ service = myService.create(image='floydhub/tensorflow:latest-py2',
                            hostname='russell-master',
                            source='/root/tensorflow-examples/3_NeuralNetworks',
                            target='/code',
-                           command=['jupyter notebook \"$@\"'],
+                           command='',
                            workdir='/code',
                            run_mode='jupyter')
 # service = myService.create(image='floydhub/tensorflow:latest-py2',
