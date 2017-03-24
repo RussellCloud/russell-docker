@@ -24,4 +24,5 @@ myService = Service()
 # print myService.get_stats('kbtvses1f6ucok7j16v0mzo86')
 
 log = myService.get_logs('kbtvses1f6ucok7j16v0mzo86')
-print log.next()
+while True:
+    print log.next()
