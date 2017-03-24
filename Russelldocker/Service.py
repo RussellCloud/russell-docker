@@ -21,11 +21,11 @@ class Service:
         print self.service
 
     # 创建服务
-    def create(self, image, name, constraints, source, target, command=None, workdir=None, run_mode='cli'):
+    def create(self, image, name, nodename, source, target, command=None, workdir=None, run_mode='cli'):
         self.service = self.client.services. \
             create(image,
                    name=name,
-                   constraints=constraints,
+                   nodename=['node.hostname=={}'.format(nodename)],
                    endpoint_spec={
                        'Ports': [
                            {'Protocol': 'tcp', 'PublishedPort': 8888,
