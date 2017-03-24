@@ -38,7 +38,13 @@ class Service:
                    )
         print self.service.id
 
+    # 获取服务状态
+    def get_stats(self, id):
+        service = self.client.services.get(id)
+        tasks = service.tasks()
+        print tasks[0]['Status']['State']
+
     # 获取服务日志
     def get_logs(self, id):
         service = self.client.services.get(id)
-        print service.logs
+        print service.logs(details=True)

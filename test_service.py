@@ -20,4 +20,6 @@ myService = Service()
 #                            command='python /code/dynamic_rnn.py',
 #                            run_mode='cli')
 
-print myService.get_logs('m3o22enlncxk6cs8kjkzt6j7b')
+print myService.get_stats('m3o22enlncxk6cs8kjkzt6j7b')
+
+# print myService.get_logs('m3o22enlncxk6cs8kjkzt6j7b')
