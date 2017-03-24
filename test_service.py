@@ -7,7 +7,7 @@ myService = Service()
 # service = myService.get('h2mo8de6fj')
 service = myService.create(image='floydhub/tensorflow:latest-py2',
                            name='floydhub',
-                           constraints=['russell-master'],
+                           hostname='russell-master',
                            source='/root/tensorflow-examples/3_NeuralNetworks',
                            target='/code',
                            command=['cd /code', 'jupyter notebook'],
