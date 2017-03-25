@@ -30,8 +30,8 @@ myService = Service()
 
 # print myService.get_stats(id)
 
-log_gen = myService.get_logs('sf31jm50z12e')
+log_gen = myService.get_logs('uh323v6dos4i')
 # print log_gen.next()
-log = list(log_gen)
-for l in log:
-    print l
+log_list = list(log_gen)
+for log in log_list:
+    print log
