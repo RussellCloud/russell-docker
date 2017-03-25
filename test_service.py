@@ -28,7 +28,8 @@ id = myService.create(image='floydhub/tensorflow:latest-py3',
                       workdir='/code',
                       run_mode='cli')
 
-print myService.get_stats(id)
+print id
+# print myService.get_stats(id)
 
 # log_gen = myService.get_logs('kbtvses1f6ucok7j16v0mzo86')
 # print log_gen.next()

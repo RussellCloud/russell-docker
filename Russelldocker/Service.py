@@ -22,21 +22,36 @@ class Service:
 
     # 创建服务
     def create(self, image, name, source, target, constraints=None, command=None, workdir=None, run_mode='cli'):
-        self.service = self.client.services. \
-            create(image,
-                   name=name,
-                   endpoint_spec={
-                       'Ports': [
-                           {'Protocol': 'tcp', 'PublishedPort': 8888,
-                            'TargetPort': 8888},
-                       ]
-                   },
-                   mounts=['{}:{}'.format(source, target)],
-                   constraints=constraints,
-                   command=command,
-                   workdir=workdir,
-                   )
-        print self.service.id
+        if run_mode == 'cli':
+            self.service = self.client.services. \
+                create(image,
+                       name=name,
+                       mounts=['{}:{}'.format(source, target)],
+                       constraints=constraints,
+                       command=command,
+                       workdir=workdir,
+                       )
+            print self.service.id
+
+        elif run_mode == 'jupyter':
+            self.service = self.client.services. \
+                create(image,
+                       name=name,
+                       endpoint_spec={
+                           'Ports': [
+                               {'Protocol': 'tcp', 'PublishedPort': 8888,
+                                'TargetPort': 8888},
+                           ]
+                       },
+                       mounts=['{}:{}'.format(source, target)],
+                       constraints=constraints,
+                       command=command,
+                       workdir=workdir,
+                       )
+            print self.service.id
+
+        else:
+            print None
 
     # 获取服务状态
     def get_stats(self, id):
