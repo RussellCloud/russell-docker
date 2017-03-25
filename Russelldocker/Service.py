@@ -68,4 +68,4 @@ class Service:
     def get_logs(self, id):
         service = self.client.services.get(id)
         # print service.logs(stdout=True, timestamps=True, follow=True)
-        return service.logs(stdout=True, timestamps=True, follow=True)
+        return service.logs(stdout=True, timestamps=True)
