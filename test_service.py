@@ -21,7 +21,7 @@ myService = Service()
 #                            command='python /code/dynamic_rnn.py',
 #                            run_mode='cli')
 id = myService.create(image='floydhub/tensorflow:latest-py3',
-                      name='w821881341_rnn_32',
+                      name='w821881341_rnn_test',
                       source='/root/code/9bef47551eb3422d907d324387c13ee6',
                       target='/code',
                       command='python dynamic_rnn.py',
