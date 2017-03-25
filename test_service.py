@@ -20,19 +20,18 @@ myService = Service()
 #                            target='/code',
 #                            command='python /code/dynamic_rnn.py',
 #                            run_mode='cli')
-id = myService.create(image='floydhub/tensorflow:latest-py3',
-                      name='w821881341_rnn_test',
-                      source='/root/code/9bef47551eb3422d907d324387c13ee6',
-                      target='/code',
-                      command='python dynamic_rnn.py',
-                      workdir='/code',
-                      run_mode='cli')
+# id = myService.create(image='floydhub/tensorflow:latest-py3',
+#                       name='w821881341_rnn_test',
+#                       source='/root/code/9bef47551eb3422d907d324387c13ee6',
+#                       target='/code',
+#                       command='python dynamic_rnn.py',
+#                       workdir='/code',
+#                       run_mode='cli')
 
-print id
 # print myService.get_stats(id)
 
-# log_gen = myService.get_logs('kbtvses1f6ucok7j16v0mzo86')
+log_gen = myService.get_logs('sf31jm50z12e')
 # print log_gen.next()
-# log = list(log_gen)
-# for l in log:
-#     print l
+log = list(log_gen)
+for l in log:
+    print l
