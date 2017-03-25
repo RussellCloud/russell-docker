@@ -13,12 +13,14 @@ class Service:
 
     # 服务列表
     def list(self):
-        print self.client.services.list()
+        # print self.client.services.list()
+        return self.client.services.list()
 
     # 获取服务
     def get(self, id):
         self.service = self.client.services.get(id)
-        print self.service
+        # print self.service
+        return self.service
 
     # 创建服务
     def create(self, image, name, source, target, constraints=None, command=None, workdir=None, run_mode='cli'):
@@ -31,7 +33,8 @@ class Service:
                        command=command,
                        workdir=workdir,
                        )
-            print self.service.id
+            # print self.service.id
+            return self.service.id
 
         elif run_mode == 'jupyter':
             self.service = self.client.services. \
@@ -48,18 +51,21 @@ class Service:
                        command=command,
                        workdir=workdir,
                        )
-            print self.service.id
+            # print self.service.id
+            return self.service.id
 
         else:
-            print None
+            return None
 
     # 获取服务状态
     def get_stats(self, id):
         service = self.client.services.get(id)
         tasks = service.tasks()
-        print tasks[0]['Status']['State']
+        # print tasks[0]['Status']['State']
+        return tasks[0]['Status']['State']
 
     # 获取服务日志
     def get_logs(self, id):
         service = self.client.services.get(id)
-        print service.logs(stdout=True, timestamps=True, follow=True)
+        # print service.logs(stdout=True, timestamps=True, follow=True)
+        return service.logs(stdout=True, timestamps=True, follow=True)
