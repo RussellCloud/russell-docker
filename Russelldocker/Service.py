@@ -69,3 +69,8 @@ class Service:
         service = self.client.services.get(id)
         # print service.logs(stdout=True, timestamps=True, follow=True)
         return service.logs(stdout=True, timestamps=True)
+
+    # 关闭服务
+    def stop(self, id):
+        service = self.client.services.get(id)
+        return service.remove()
