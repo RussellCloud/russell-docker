@@ -42,8 +42,11 @@ class Service:
                        name=name,
                        endpoint_spec={
                            'Ports': [
-                               {'Protocol': 'tcp', 'PublishedPort': 8888,
-                                'TargetPort': 8888},
+                               {
+                                   'Protocol': 'tcp',
+                                   # 'PublishedPort': 8888,
+                                   'TargetPort': 8888
+                               },
                            ]
                        },
                        mounts=['{}:{}'.format(source, target)],
