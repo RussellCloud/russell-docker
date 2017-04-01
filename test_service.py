@@ -6,14 +6,14 @@ myService = Service()
 
 # service = myService.get('kbtvses1f6ucok7j16v0mzo86')
 
-service = myService.create(image='floydhub/tensorflow:latest-py2',
-                           name='floydhub',
-                           source='/root/code/9bef47551eb3422d907d324387c13ee6',
-                           target='/code',
-                           # constraints=['node.hostname==russell-master'],
-                           command='',
-                           workdir='/code',
-                           run_mode='jupyter')
+# service = myService.create(image='floydhub/tensorflow:latest-py2',
+#                            name='floydhub',
+#                            source='/root/code/9bef47551eb3422d907d324387c13ee6',
+#                            target='/code',
+#                            # constraints=['node.hostname==russell-master'],
+#                            command='',
+#                            workdir='/code',
+#                            run_mode='jupyter')
 # id = myService.create(image='floydhub/tensorflow:latest-py3',
 #                       name='w821881341_rnn_test',
 #                       source='/root/code/9bef47551eb3422d907d324387c13ee6',
@@ -39,3 +39,4 @@ service = myService.create(image='floydhub/tensorflow:latest-py2',
 # chmod 640 /etc/passwd-ossfs
 # ossfs russellcloud /root/code -ourl=oss-cn-zhangjiakou-internal.aliyuncs.com
 
+print myService.stop('3tgcf33u7pp3')

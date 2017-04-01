@@ -76,4 +76,5 @@ class Service:
     # 关闭服务
     def stop(self, id):
         service = self.client.services.get(id)
+        # print service.remove()
         return service.remove()
