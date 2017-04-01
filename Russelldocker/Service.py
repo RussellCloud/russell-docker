@@ -44,7 +44,7 @@ class Service:
                            'Ports': [
                                {
                                    'Protocol': 'tcp',
-                                   'PublishedPort': 8888,
+                                   'PublishedPort': 8887,
                                    'TargetPort': 8888
                                },
                            ]
