@@ -13,7 +13,7 @@ service = myService.create(image='floydhub/tensorflow:latest-py2',
                            command='jupyter notebook '
                                    '--NotebookApp.token= '
                                    '--NotebookApp.base_url=abc '
-                                   '--NotebookApp.default_url=/',
+                                   '--NotebookApp.default_url=',
                            workdir='/code',
                            run_mode='jupyter')
 # id = myService.create(image='floydhub/tensorflow:latest-py3',
