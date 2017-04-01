@@ -8,7 +8,7 @@ myService = Service()
 
 service = myService.create(image='floydhub/tensorflow:latest-py2',
                            name='floydhub',
-                           source='/root/tensorflow-examples/3_NeuralNetworks',
+                           source='/root/code/tensorflow-examples/3_NeuralNetworks',
                            target='/code',
                            command='',
                            workdir='/code',
