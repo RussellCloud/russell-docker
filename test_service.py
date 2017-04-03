@@ -10,9 +10,8 @@ service = myService.create(image='floydhub/tensorflow:latest-py2',
                            name='floydhub',
                            source='/root/code/tensorflow-examples/3_NeuralNetworks',
                            target='/code',
-                           command='jupyter notebook '
-                                   '--NotebookApp.token='
-                                   '--NotebookApp.base_url=abc',
+                           task_id='abc',
+                           command='',
                            workdir='/code',
                            run_mode='jupyter')
 # id = myService.create(image='floydhub/tensorflow:latest-py3',

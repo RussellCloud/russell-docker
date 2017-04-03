@@ -23,7 +23,8 @@ class Service:
         return self.service
 
     # 创建服务
-    def create(self, image, name, source, target, constraints=None, command=None, workdir=None, run_mode='cli'):
+    def create(self, image, name, source, target, task_id=None, port=None, constraints=None, command=None, workdir=None,
+               run_mode='cli'):
         if run_mode == 'cli':
             self.service = self.client.services. \
                 create(image,
@@ -44,14 +45,14 @@ class Service:
                            'Ports': [
                                {
                                    'Protocol': 'tcp',
-                                   'PublishedPort': 23888,
+                                   'PublishedPort': port,
                                    'TargetPort': 8888
                                },
                            ]
                        },
                        mounts=['{}:{}'.format(source, target)],
                        constraints=constraints,
-                       command=command,
+                       command='sh -c \'echo \"jupyter notebook --NotebookApp.token= --NotebookApp.base_url={}\" > jupyter.sh && bash jupyter.sh\''.format(task_id),
                        workdir=workdir,
                        )
             # print self.service.id
@@ -76,5 +77,4 @@ class Service:
     # 关闭服务
     def stop(self, id):
         service = self.client.services.get(id)
-        # print service.remove()
         return service.remove()
