@@ -96,3 +96,38 @@ grafana/grafana
 1. [How nodes work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/nodes/)
 2. [How services work](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/)
 
+
+## Volume 数据卷
+> Docker的特性，决定了容器本身是非持久化的，容器被删除后其中的数据也一并被删除了。Docker提供数据卷（Volume），通过挂载宿主机上的目录来实现持久存储。
+> 但在集群环境中，宿主机上的数据卷有很大的局限性：容器在机器间迁移时，数据无法迁移；不同机器之间不能共享数据卷。
+> 为了解决这些问题，阿里云容器服务提供第三方数据卷，将各种云存储包装成数据卷，可以直接挂载在容器上，并在容器重启、迁移时自动重新挂载。目前支持ossfs和云盘两种存储。
+
+小润在开发中遇到要给每台机器都共享用户上传的文件，并把针对不同用户上传的文件分别挂载到相应的容器中去。尝试使用 ossfs 工具 让 Aliyun OSS bucket 挂载到本地文件系统中：
+[https://github.com/aliyun/ossfs](https://github.com/aliyun/ossfs)
+
+```
+# 安装命令行工具
+sudo apt-get update
+sudo apt-get install gdebi-core
+wget http://docs-aliyun.cn-hangzhou.oss.aliyun-inc.com/assets/attach/32196/cn_zh/1483608175067/ossfs_1.80.0_ubuntu16.04_amd64.deb
+sudo gdebi ossfs_1.80.0_ubuntu16.04_amd64.deb
+
+# 配置与挂载
+echo russellcloud:LTAIpdP2r7mjUMhW:gQqrOPmvG9NLZjRMM9cWgNBGW1TPRl > /etc/passwd-ossfs
+chmod 640 /etc/passwd-ossfs
+ossfs russellcloud /root/code -ourl=oss-cn-zhangjiakou-internal.aliyuncs.com
+
+# 开机自动挂载
+# 方法一：
+vi /etc/fstab
+ossfs#russellcloud /root/code fuse _netdev,url=oss-cn-zhangjiakou-internal.aliyuncs.com,nonempty 0 0
+mount -a
+# 方法二：
+crontab
+```
+
+## [Rancher](http://www.rancher.com/)
+![rancher](https://cdn-images-1.medium.com/max/1162/1*07ajfP09fxaU63NxPVWwbA.png)
+
+强大的可视化管理工具，由于 swarm 模式还处于 Dev 状态，遇到坑了，我提了 [ISSUE](https://github.com/rancher/rancher/issues/8304) 还没解决(哭脸)
+
